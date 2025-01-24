@@ -5,7 +5,13 @@ const {userRouter} = require("./routes/user.routes")
 const cors = require("cors")
 
 const app = express()
-app.use(cors())
+app.use(
+    cors({
+      origin: 'http://localhost:5173', // Replace with the actual origin of your frontend
+      methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+      credentials: true, // If you need cookies or authentication
+    })
+  )
 
 app.use(express.json())
 
